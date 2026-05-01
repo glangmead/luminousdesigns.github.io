@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5d889"/>
+      <stop offset="50%" stop-color="#c9a961"/>
+      <stop offset="100%" stop-color="#7a5d2a"/>
+    </linearGradient>
+    <radialGradient id="ogGlow" cx="25%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#c9a961" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#7a5d2a" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ogEmber" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#b85c3a" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0b0a08"/>
+  <rect width="1200" height="630" fill="url(#ogEmber)"/>
+  <rect width="1200" height="630" fill="url(#ogGlow)"/>
+
+  <!-- Ring on the left -->
+  <g transform="translate(315 315)">
+    <circle r="240" fill="url(#ogGlow)" opacity="0.6"/>
+    <circle r="195" fill="none" stroke="url(#ogGold)" stroke-width="14"/>
+    <circle r="175" fill="none" stroke="url(#ogGold)" stroke-width="1.5" opacity="0.55"/>
+    <circle r="215" fill="none" stroke="url(#ogGold)" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Type on the right -->
+  <g font-family="Cinzel, 'Trajan Pro', serif" fill="#ece1c7" text-anchor="start">
+    <text x="640" y="232" font-size="32" letter-spacing="14" fill="#c9a961">THE</text>
+    <text x="640" y="356" font-size="128" font-weight="800" letter-spacing="6">RING</text>
+    <text x="640" y="412" font-size="32" letter-spacing="14" fill="#c9a961">APP</text>
+    <text x="640" y="488" font-size="22" font-family="EB Garamond, Garamond, serif" font-style="italic" fill="#c9bfa6">
+      A companion to Wagner's Ring Cycle
+    </text>
+  </g>
+
+  <!-- Top + bottom rules -->
+  <line x1="60" y1="60" x2="1140" y2="60" stroke="#c9a961" stroke-width="1" opacity="0.35"/>
+  <line x1="60" y1="570" x2="1140" y2="570" stroke="#c9a961" stroke-width="1" opacity="0.35"/>
+
+  <!-- Footer mark -->
+  <text x="600" y="603" font-family="Cinzel, serif" font-size="14" letter-spacing="6" fill="#8a8169" text-anchor="middle">
+    LUMINOUS DESIGNS
+  </text>
+</svg>
