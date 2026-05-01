@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Der Ring — A Companion to Wagner's Ring Cycle</title>
+  <meta name="description" content="An iOS and macOS app for appreciating Richard Wagner's Der Ring des Nibelungen. Synced libretto in German and English, over 130 leitmotifs, synopses, and an art gallery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=UnifrakturMaguntia&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="masthead__rule"></div>
+    <div class="masthead__inner">
+      <span class="masthead__mark">Luminous Designs</span>
+      <span class="masthead__sep">·</span>
+      <span class="masthead__sub">Bühnenfestspiel für drei Tage und einen Vorabend</span>
+    </div>
+    <div class="masthead__rule"></div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__numerals" aria-hidden="true">
+        <span>I</span><span>II</span><span>III</span><span>IV</span>
+      </div>
+
+      <div class="hero__ring" aria-hidden="true">
+        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="goldGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f5d889" stop-opacity="0" />
+              <stop offset="60%" stop-color="#c9a961" stop-opacity="0.6" />
+              <stop offset="100%" stop-color="#7a5d2a" stop-opacity="0.9" />
+            </radialGradient>
+            <linearGradient id="ringStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f5d889" />
+              <stop offset="50%" stop-color="#c9a961" />
+              <stop offset="100%" stop-color="#7a5d2a" />
+            </linearGradient>
+          </defs>
+          <circle cx="300" cy="300" r="280" fill="none" stroke="url(#ringStroke)" stroke-width="2" opacity="0.9"/>
+          <circle cx="300" cy="300" r="260" fill="none" stroke="url(#ringStroke)" stroke-width="0.6" opacity="0.6"/>
+          <circle cx="300" cy="300" r="220" fill="none" stroke="url(#ringStroke)" stroke-width="0.4" opacity="0.4"/>
+          <circle cx="300" cy="300" r="296" fill="url(#goldGrad)" opacity="0.18"/>
+        </svg>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow">A Companion App</p>
+        <h1 class="hero__title">
+          <span class="hero__der">Der</span>
+          <span class="hero__ringword">Ring</span>
+          <span class="hero__des">des Nibelungen</span>
+        </h1>
+        <p class="hero__lede">
+          A reading room and listening companion for Richard Wagner's four-opera cycle &mdash;
+          libretto, leitmotifs, synopses, and the music itself, woven into a single quiet instrument.
+        </p>
+        <div class="hero__meta">
+          <span>iPhone &middot; iPad &middot; Mac</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>Requires Apple Music</span>
+        </div>
+      </div>
+
+      <ol class="hero__cycle" aria-label="The four operas of the cycle">
+        <li><span class="cycle__num">I.</span><span class="cycle__name">Das Rheingold</span><span class="cycle__sub">Vorabend</span></li>
+        <li><span class="cycle__num">II.</span><span class="cycle__name">Die Walküre</span><span class="cycle__sub">Erster Tag</span></li>
+        <li><span class="cycle__num">III.</span><span class="cycle__name">Siegfried</span><span class="cycle__sub">Zweiter Tag</span></li>
+        <li><span class="cycle__num">IV.</span><span class="cycle__name">Götterdämmerung</span><span class="cycle__sub">Dritter Tag</span></li>
+      </ol>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="movement" id="features">
+      <header class="movement__head">
+        <span class="movement__roman">§ I</span>
+        <h2 class="movement__title">What it does</h2>
+      </header>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature__rule"></div>
+          <h3>Libretto, in two tongues</h3>
+          <p>The full German libretto alongside an English translation, paginated for reading and aligned to the score so the text moves with the music.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__rule"></div>
+          <h3>Over 130 leitmotifs</h3>
+          <p>Wagner's recurring musical figures &mdash; the Ring, the Sword, the Renunciation &mdash; surfaced in place as they sound, and browsable on their own as a thematic atlas.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__rule"></div>
+          <h3>Synced to the recording</h3>
+          <p>Tap a line and the music meets you there. Tap a leitmotif and hear the moment it returns. Built on a measure-accurate index of the score.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__rule"></div>
+          <h3>Search &amp; history</h3>
+          <p>Find a phrase in either language and step through every occurrence. A history of where you've been, kept gently, in case you wish to return.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__rule"></div>
+          <h3>Synopses &amp; scholarship</h3>
+          <p>Plot summaries, character lists, and discussion of the music and its making &mdash; Wikipedia rendered in the app, no browser detour required.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__rule"></div>
+          <h3>An art gallery</h3>
+          <p>A century of paintings, set designs, and engravings of the cycle &mdash; Rackham, Burne-Jones, Fantin-Latour and the rest &mdash; collected for unhurried viewing.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- RECORDING -->
+    <section class="movement movement--bordered" id="recording">
+      <header class="movement__head">
+        <span class="movement__roman">§ II</span>
+        <h2 class="movement__title">The recording</h2>
+      </header>
+
+      <div class="recording">
+        <div class="recording__plate" aria-hidden="true">
+          <div class="recording__inner">
+            <span class="recording__year">1958&ndash;65</span>
+            <span class="recording__label">Decca</span>
+          </div>
+        </div>
+        <div class="recording__text">
+          <h3>Solti &middot; Vienna Philharmonic</h3>
+          <p>
+            Launches with Sir Georg Solti's landmark studio cycle &mdash; the recording John Culshaw built across seven years
+            at the Sofiensaal, and the one most listeners still measure the others against.
+          </p>
+          <p class="recording__more">More performances to follow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUIREMENT -->
+    <section class="movement" id="apple-music">
+      <header class="movement__head">
+        <span class="movement__roman">§ III</span>
+        <h2 class="movement__title">Apple Music required</h2>
+      </header>
+      <p class="prose">
+        The app does not ship with audio. It plays the cycle from your Apple Music subscription, which keeps the experience
+        legal, lossless, and in your pocket. An active subscription is required.
+      </p>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="colophon__rule"></div>
+    <div class="colophon__inner">
+      <p class="colophon__line">
+        <span class="colophon__name">Luminous Designs</span>
+        <span class="colophon__sep">&mdash;</span>
+        <span>An independent studio.</span>
+      </p>
+      <p class="colophon__fine">
+        Built upon <a href="https://zenodo.org/records/7672157">The Wagner Ring Dataset</a>
+        and leitmotif annotations from the
+        <a href="https://www.audiolabs-erlangen.de/resources/MIR/2021-TISMIR-TowardsLeitmotifDetection">AudioLabs Erlangen</a> research,
+        with libretto indentation drawn from Julius Burghold's edition.
+      </p>
+      <p class="colophon__fine colophon__year">MMXXVI</p>
+    </div>
+  </footer>
+</body>
+</html>
