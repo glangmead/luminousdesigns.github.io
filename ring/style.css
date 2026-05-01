@@ -475,3 +475,27 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper); }
   background: var(--gold);
   color: var(--ink);
 }
+
+.ringdisc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: top;
+}
+
+@media (min-width: 720px) {
+  .ringdisc { grid-template-columns: 1fr 1fr; }
+}
+
+.ringdisc__images {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+}
+
+.ringdisc__images img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(201,169,97,0.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
