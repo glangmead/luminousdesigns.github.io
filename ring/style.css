@@ -412,6 +412,102 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper); }
   font-size: 1rem !important;
 }
 
+/* ---------- discography grid ---------- */
+.discography__divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--paper-mute);
+}
+.discography__divider::before,
+.discography__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,169,97,0.35), transparent);
+}
+
+.discography {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+.disc-card {
+  position: relative;
+  padding: 1.8rem 1.3rem 1.4rem;
+  background: rgba(20,17,12,0.4);
+  border: 1px solid rgba(201,169,97,0.12);
+  transition: border-color 320ms ease, transform 320ms ease, background 320ms ease;
+}
+.disc-card:hover {
+  border-color: rgba(201,169,97,0.45);
+  background: rgba(28,24,18,0.55);
+  transform: translateY(-2px);
+}
+.disc-card__rule {
+  position: absolute;
+  top: 0; left: 1.3rem;
+  width: 2.4rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-hi), var(--gold-lo));
+}
+.disc-card__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.8rem;
+  color: var(--paper);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.disc-card__year {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+}
+.disc-card__facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--paper-dim);
+}
+.disc-card__label {
+  margin-top: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+.disc-card__wiki,
+.recording__wiki a {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 0;
+}
+.disc-card__wiki:hover,
+.recording__wiki a:hover {
+  color: var(--gold-hi);
+  border-bottom: 0;
+}
+.recording__wiki {
+  margin: 0;
+}
+
 /* ---------- colophon ---------- */
 .colophon {
   position: relative;
