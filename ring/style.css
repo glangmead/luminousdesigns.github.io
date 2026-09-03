@@ -300,6 +300,24 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper); }
   color: var(--paper-dim);
 }
 
+/* ---------- screenshot strip ---------- */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(0.6rem, 1.4vw, 1.3rem);
+  align-items: start;
+}
+.shots img {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 900px) {
+  .shots { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+}
+@media (max-width: 560px) {
+  .shots { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+
 /* ---------- features ---------- */
 .features {
   display: grid;
