@@ -1,14 +1,20 @@
 // Plays Motif Sketch performances on the app's piano samples, for the tempo page
 // (`tempo_page.py`) and the web site's sketch page (`site_page.py`).
 //
-// - **Notes** are `[pitch, onset, duration]`, onsets and durations in quarter-note beats,
-//   as `dump_performances.swift` prints them.
-// - **Piano** zones are `{min, max, root, file}`: each note plays its zone's sample,
-//   pitch-shifted from the root key, through a light synthetic reverb.
+// - **Notes** are `[pitch, onset, duration, velocity]`, onsets and durations in
+//   quarter-note beats, as `dump_performances.swift` prints them.
+// - **Piano** zones are `{min, max, root, minVelocity, maxVelocity, file}`: each note
+//   plays the sample of the zone holding its pitch and velocity, pitch-shifted from the
+//   root key, through a light synthetic reverb.
+// - **Loudness** scales in proportion to velocity, relative to an unmarked note's 80, as
+//   the app's `AVAudioUnitSampler` does with `piano.aupreset` (rendered offline, a note at
+//   105 is 105/95 as loud as at 95 at every pitch tried).
 // - **A fresh AudioContext per play.** A context that sat idle across a sleep can be left
 //   "interrupted", or "running" with its clock stopped, and its `resume()` may never settle,
 //   so Play went silent with no error. A new context costs a few milliseconds; the decoded
 //   samples and the reverb's impulse are reused across contexts.
+
+const UNMARKED_VELOCITY = 80;
 
 class SketchPlayer {
   #zones;
@@ -45,15 +51,17 @@ class SketchPlayer {
     const start = context.currentTime + 0.1;
     const sources = [];
     let end = 0;
-    for (const [pitch, onset, duration] of notes) {
-      const index = this.#zoneIndex(pitch);
+    for (const [pitch, onset, duration, velocity = UNMARKED_VELOCITY] of notes) {
+      const index = this.#zoneIndex(pitch, velocity);
       const source = context.createBufferSource();
       source.buffer = this.#buffers[index];
       source.playbackRate.value = Math.pow(2, (pitch - this.#zones[index].root) / 12);
       const gain = context.createGain();
       const on = start + onset * secondsPerBeat;
       const off = on + duration * secondsPerBeat;
-      gain.gain.setValueAtTime(1, off);
+      const level = velocity / UNMARKED_VELOCITY;
+      gain.gain.setValueAtTime(level, on);
+      gain.gain.setValueAtTime(level, off);
       gain.gain.exponentialRampToValueAtTime(0.001, off + 0.3);
       source.connect(gain).connect(this.#output);
       source.start(on);
@@ -114,10 +122,15 @@ class SketchPlayer {
     return this.#loading;
   }
 
-  #zoneIndex(pitch) {
-    const zones = this.#zones;
-    const index = zones.findIndex(zone => zone.min <= pitch && pitch <= zone.max);
-    return index >= 0 ? index : (pitch < zones[0].min ? 0 : zones.length - 1);
+  // The zone for `pitch` in `velocity`'s layer, else the nearest zone in that layer.
+  #zoneIndex(pitch, velocity) {
+    const layer = this.#zones
+      .map((zone, index) => ({ zone, index }))
+      .filter(({ zone }) => zone.minVelocity <= velocity && velocity <= zone.maxVelocity);
+    const zones = layer.length ? layer : this.#zones.map((zone, index) => ({ zone, index }));
+    const match = zones.find(({ zone }) => zone.min <= pitch && pitch <= zone.max);
+    if (match) return match.index;
+    return pitch < zones[0].zone.min ? zones[0].index : zones[zones.length - 1].index;
   }
 }
 
